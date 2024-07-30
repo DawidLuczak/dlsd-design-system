@@ -1,0 +1,137 @@
+{
+  "name": "design-system",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/design-system/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/design-system",
+        "index": "apps/design-system/src/index.html",
+        "main": "apps/design-system/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/design-system/tsconfig.app.json",
+        "assets": [
+          "apps/design-system/src/favicon.ico",
+          "apps/design-system/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/dlsd-angular-ui/src/assets",
+            "output": "assets"
+          }
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/dlsd-angular-ui/src/styles"]
+        },
+        "styles": ["apps/design-system/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/design-system/webpack.config.js"
+        },
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "150kb",
+              "maximumError": "150kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/design-system/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "port": 4222,
+        "publicHost": "http://localhost:4222",
+        "proxyConfig": "proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "design-system:build:production"
+        },
+        "development": {
+          "buildTarget": "design-system:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "buildTarget": "design-system:build",
+        "extraWebpackConfig": "apps/design-system/webpack.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/**/*.ts", "./functions/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/design-system/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "design-system:build",
+        "port": 4222,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "design-system:build:development"
+        },
+        "production": {
+          "buildTarget": "design-system:build:production"
+        }
+      }
+    },
+    "serve-functions": {
+      "command": "npx netlify dev"
+    },
+    "deploy-functions": {
+      "command": "npx netlify deploy --site=ac8e063b-92a9-42cb-87bf-c0ab6c9762b9",
+      "options": {
+        "cwd": "apps/design-system"
+      },
+      "configurations": {
+        "production": {
+          "command": "npx netlify deploy --site=ac8e063b-92a9-42cb-87bf-c0ab6c9762b9 --prod",
+          "cwd": "apps/design-system"
+        }
+      }
+    }
+  }
+}

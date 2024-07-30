@@ -1,0 +1,26 @@
+{
+  "name": "dlsd-angular-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/dlsd-angular-ui/src",
+  "prefix": "dlsd",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/dlsd-angular-ui/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "exports": {
+    "sass-global": "./styles/_global.scss",
+    "sass-colors": "./styles/_colors.scss",
+    "sass-mixins": "./styles/_mixins.scss",
+    "sass-variables": "./styles/_variables.scss"
+  }
+}

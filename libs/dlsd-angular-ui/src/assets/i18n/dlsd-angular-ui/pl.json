@@ -1,0 +1,48 @@
+{
+  "dlsdAngularUi": {
+    "datepicker": {
+      "days": {
+        "mon": "pn",
+        "tue": "wt",
+        "wed": "śr",
+        "thu": "cz",
+        "fri": "pt",
+        "sat": "sb",
+        "sun": "nd"
+      },
+      "months": {
+        "jan": "styczeń",
+        "feb": "luty",
+        "mar": "marzec",
+        "apr": "kwiecień",
+        "may": "maj",
+        "jun": "czerwiec",
+        "jul": "lipiec",
+        "aug": "sierpień",
+        "sep": "wrzesień",
+        "oct": "październik",
+        "nov": "listopad",
+        "dec": "grudzień"
+      }
+    },
+    "pagination": {
+      "pageItems": "{{pageItems}} z {{totalItems}}"
+    },
+    "password": {
+      "uppercaseLetters": "...A...",
+      "lowercaseLetters": "...a...",
+      "digits": "...420...",
+      "specialCharacters": "..?!..",
+      "minLength": "Za krórkie..."
+    },
+    "select": {
+      "choose": "wybierz",
+      "search": "szukaj"
+    },
+    "toasts": {
+      "invalidData": "Nieprawidłowe dane",
+      "serverError": "Błąd serwera",
+      "savedChanges": "Zapisano zmiany"
+    }
+  }
+}
