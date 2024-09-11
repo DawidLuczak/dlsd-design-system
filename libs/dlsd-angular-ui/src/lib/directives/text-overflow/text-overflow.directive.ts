@@ -13,11 +13,13 @@ import {
 import { TooltipService } from '../../view/tooltip/tooltip-service/tooltip.service';
 
 @Directive({
-  selector: '[textsOverflow]',
+  selector: '[dlsdTextsOverflow]',
   standalone: true,
 })
 export class DLSDTextsOverflowDirective implements OnInit {
-  public textsOverflow = input.required<string[] | string>();
+  public textsOverflow = input.required<string[] | string>({
+    alias: 'dlsdTextsOverflow',
+  });
   public textsOverflowPlaceholder = input<string>();
   public textsOverflowElementRef = input<ElementRef>();
 

@@ -27,19 +27,11 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       library: { type: 'module' },
-
-      // For remotes (please adjust)
       name: 'design-system',
       filename: 'remoteEntry.mjs',
       exposes: {
         './Routes': './apps/design-system/src/app/remote-entry/entry.routes.ts',
       },
-
-      // For hosts (please adjust)
-      // remotes: {
-      //     "mfe1": "http://localhost:3000/remoteEntry.js",
-
-      // },
 
       shared: share({
         '@angular/core': {

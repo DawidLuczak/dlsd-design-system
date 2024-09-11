@@ -66,7 +66,7 @@ export class AppComponent {
 
   protected navigateTo(activeRoute: DLSDActiveRoutesTree): void {
     this.activeRouteTree.set(activeRoute);
-    this.view()
+    this.view() === View.COMPONENT_OUTLETS
       ? this.componentsContainerRef().changeSection(
           activeRoute,
           this.mainContainerRef().nativeElement

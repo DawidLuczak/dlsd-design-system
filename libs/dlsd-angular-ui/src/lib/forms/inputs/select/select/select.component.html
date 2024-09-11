@@ -43,7 +43,7 @@
     [ngClass]="{ placeholder: !value().length && !query().length }"
     [contentEditable]="editable"
     [tabIndex]="-1"
-    [textsOverflow]="!expanded() || !optional() ? valueNames() : query()"
+    [dlsdTextsOverflow]="!expanded() || !optional() ? valueNames() : query()"
     [textsOverflowPlaceholder]="
       (search() ? I18N + '.search' : I18N + '.choose') | translate
     "
