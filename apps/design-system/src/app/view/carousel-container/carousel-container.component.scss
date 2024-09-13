@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+dlsd-carousel-container {
+  border: 1px solid black;
+
+  .carousel-item {
+    padding: 0 16px;
+    min-width: 300px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightgray;
+  }
+}

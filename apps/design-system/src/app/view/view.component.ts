@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CarouselContainerComponent } from './carousel-container/carousel-container.component';
 import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { ToastsComponent } from './toasts/toasts.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 
 @Component({
   selector: 'app-view',
-  standalone: true,
-  imports: [DropdownsComponent, ToastsComponent, TooltipsComponent],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    DropdownsComponent,
+    ToastsComponent,
+    TooltipsComponent,
+    CarouselContainerComponent,
+  ],
 })
 export class ViewComponent {}

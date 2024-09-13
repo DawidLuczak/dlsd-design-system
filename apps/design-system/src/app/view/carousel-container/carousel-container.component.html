@@ -1,0 +1,19 @@
+<h2>Carousel</h2>
+
+<dlsd-carousel-container
+  height="200px"
+  [content]="{
+    templateRef: carouselItemTemplateRef,
+    items: ['1', '2', '3', '4', '5']
+  }"
+  [gap]="16"
+  [numberOfItemsToDisplay]="3"
+  [intervalMs]="2000"
+>
+</dlsd-carousel-container>
+
+<ng-template #carouselItemTemplateRef let-item>
+  <div class="carousel-item">
+    {{ item }}
+  </div>
+</ng-template>

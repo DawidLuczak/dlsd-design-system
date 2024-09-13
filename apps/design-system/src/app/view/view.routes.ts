@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { carouselRoutes } from './carousel-container/carousel-container.routes';
 import { dropdownsRoutes } from './dropdowns/dropdowns.routes';
 import { sidePanelsRoutes } from './side-panels/side-panels.routes';
 import { toastsRoutes } from './toasts/toasts.routes';
@@ -15,6 +16,7 @@ export const viewRoutes: Routes = [
       ...sidePanelsRoutes,
       ...toastsRoutes,
       ...tooltipsRoutes,
+      ...carouselRoutes,
     ],
   },
 ];

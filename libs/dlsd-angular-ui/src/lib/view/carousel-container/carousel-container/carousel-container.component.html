@@ -1,0 +1,39 @@
+<div
+  #carouselContentContainerRef
+  class="carousel"
+  [scrollLeft]="scrollLeft()"
+  [ngStyle]="{ 'gap.px': gap(), width: widthStyle(), height: height() }"
+>
+  @if (content(); as content) { @for (item of content.items; track $index) {
+  <ng-container
+    *ngTemplateOutlet="
+          content.templateRef;
+          context: {
+            $implicit: item,
+          } 
+        "
+  ></ng-container>
+  } @for (item of items(); track $index) {
+  <ng-container
+    *ngTemplateOutlet="
+            content.templateRef;
+            context: {
+              $implicit: item,
+            } 
+          "
+  ></ng-container>
+  } } @else {
+  <ng-content></ng-content>
+  }
+</div>
+
+@if (showButtons()) {
+<div class="buttons">
+  <button (click)="previous()">
+    {{ '<' }}
+  </button>
+  <button (click)="next()">></button>
+</div>
+}
+
+<!-- <div></div> -->
